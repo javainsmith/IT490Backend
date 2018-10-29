@@ -82,7 +82,9 @@ class rabbitMQServer
 		}
 		catch(Exception $e)
 		{
-			// ampq throws exception if get fails...
+			$txt = "Error: rabbitMQServer: process_message: eception caught:  ". $e ."\n";
+                        file_put_contents('errors.txt', $txt . "\n", FILE_APPEND);
+			// ampq throws exception if get fails..
 			echo "error: rabbitMQServer: process_message: exception caught: ".$e;
 		}
 		// message does not require a response, send ack immediately
@@ -129,6 +131,8 @@ class rabbitMQServer
 		}
 		catch (Exception $e)
 		{
+		        $txt = "Failed to start request processor: ". $e ."\n";
+                        file_put_contents('errors.txt', $txt . "\n", FILE_APPEND);
 			trigger_error("Failed to start request processor: ".$e,E_USER_ERROR); 
 		}
 	}
@@ -229,6 +233,8 @@ class rabbitMQClient
 		}
 		catch(Exception $e)
 		{
+			$txt = "failed to send message to exchange: ". $e->getMessage()."\n";
+			file_put_contents('errors.txt', $txt . "\n", FILE_APPEND);
 			die("failed to send message to exchange: ". $e->getMessage()."\n");
 		}
 	}
@@ -264,6 +270,8 @@ class rabbitMQClient
 		}
 		catch(Exception $e)
 		{
+			$txt = "failed to send message to exchange: ". $e->getMessage()."\n";
+                        file_put_contents('errors.txt', $txt . "\n", FILE_APPEND);
 			die("failed to send message to exchange: ". $e->getMessage()."\n");
 		}
 	}

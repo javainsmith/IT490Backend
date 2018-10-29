@@ -1,0 +1,7 @@
+
+failed to send message to exchange: Server connection error: 403, message: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile. - Potential login failure.
+
+failed to send message to exchange: Socket error: could not connect to host.
+
+failed to send message to exchange: Socket error: could not connect to host.
+
