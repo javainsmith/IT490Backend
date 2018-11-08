@@ -4,6 +4,12 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 error_reporting(E_ALL);
+
+/*$URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=a";
+file_put_contents('data.json', file_get_contents($URL));
+//var_dump($json);
+exit();*/
+
 function foodLookup($data)
 {
 	$URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=" . $data;
